@@ -1,0 +1,12 @@
+30-Nov-2025	Error In UserRepository GetUsers System.ArgumentException: Column 'RoleId' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at ECommerce.Common.Repository.Service.UserRepository.GetUsers(DataTable DT) in D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\Repository\Service\UserRepository.cs:line 32
+30-Nov-2025	Error In UserRepository GetUsers System.ArgumentException: Column 'RoleId' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at ECommerce.Common.Repository.Service.UserRepository.GetUsers(DataTable DT)
+30-Nov-2025	Error In UserRepository GetUsers System.ArgumentException: Column 'CreatedDate' does not belong to table .
+   at System.Data.DataRow.GetDataColumn(String columnName)
+   at System.Data.DataRow.get_Item(String columnName)
+   at ECommerce.Common.Repository.Service.UserRepository.GetUsers(DataTable DT)

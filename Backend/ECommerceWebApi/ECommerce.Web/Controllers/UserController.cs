@@ -1,0 +1,78 @@
+﻿using ECommerce.Common.Models;
+using ECommerce.Web.DataAcessLayer.Interface;
+using ECommerce.Web.DataAcessLayer.Service;
+using Microsoft.AspNetCore.Mvc;
+
+namespace ECommerce.Web.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserController : Controller
+    {
+
+        private readonly IDalUser _iuser;
+
+
+        public UserController(IDalUser iuser)
+        {
+            this._iuser = iuser;
+        }
+
+        [Route("GetUser")]
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var users = _iuser.GetUsers();
+
+            if (users == null || !users.Any())
+                return NoContent();
+            return Ok(users);
+        }
+
+        //[Route("GetUser")]
+        //[HttpGet]
+        //public IActionResult GetUser()
+        //{
+        //    var users = _iuser.GetUsers();
+
+        //    if (users == null || !users.Any())
+        //        return NoContent();
+        //    return Ok(users);
+        //}
+
+
+        [Route("GetUserById/{UserId}")]
+        [HttpGet]
+        public IActionResult GetUserById(int UserId)
+        {
+            var users = _iuser.GetUserById(UserId);
+
+            if (users == null)
+                return NoContent();
+
+            return Ok(users);
+        }
+
+
+        [Route("Registration")]
+        [HttpPost]
+        public ResponseModel RegistrationUser([FromBody] UserModel umodel)
+        {
+            return _iuser.AddUser(umodel);
+        }
+
+        [Route("LoginUser")]
+        [HttpPost]
+        public ResponseModel LoginUser([FromBody] UserModel umodel)
+        {
+            return _iuser.LoginUser(umodel);
+        }
+
+        [Route("UpdateUser")]
+        [HttpPost]
+        public ResponseModel UpdateUser([FromBody] UserModel umodel)
+        {
+            return _iuser.UpdateUser(umodel);
+        }
+    }
+}
