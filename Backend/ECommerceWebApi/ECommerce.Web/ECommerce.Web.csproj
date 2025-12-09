@@ -7,12 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\CetagoryController.cs" />
-    <Compile Remove="DataAcessLayer\Interface\IDalCetagory.cs" />
-    <Compile Remove="DataAcessLayer\Service\DalCetagory.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 

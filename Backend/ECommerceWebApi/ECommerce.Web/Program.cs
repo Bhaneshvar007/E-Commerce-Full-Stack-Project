@@ -19,6 +19,7 @@ builder.Services.AddScoped<IHelper, Helper>();
 builder.Services.AddScoped<IAppDbContext, AppDbContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IDalUser, DalUser>();
+builder.Services.AddScoped<IDalCetagory, DalCetagory>();
 
 // read connection string
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");

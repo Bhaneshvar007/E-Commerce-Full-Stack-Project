@@ -34,7 +34,7 @@ public class AppDbContext : IAppDbContext
             catch (Exception ex)
             {
                 _helper.WriteLog("Error While ExecuteQuery: " + ex.ToString());
-                throw;
+                throw ex;
             }
         }
         return dt;
@@ -68,7 +68,7 @@ public class AppDbContext : IAppDbContext
             catch (Exception ex)
             {
                 _helper.WriteLog($"Error While ExecuteProcedure '{cProcedureName}': {ex}");
-                throw;
+                throw ex;
             }
         }
 

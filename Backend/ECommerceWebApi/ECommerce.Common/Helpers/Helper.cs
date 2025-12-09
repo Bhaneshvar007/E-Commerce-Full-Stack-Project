@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ECommerce.Common.Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,7 +17,7 @@ namespace ECommerce.Common.Helpers
         private string key = "A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6";
         private readonly byte[] iv = Encoding.UTF8.GetBytes("1234567890123456");
 
-
+        
         public Helper(IConfiguration config)
         {
             _config = config;
@@ -48,7 +49,7 @@ namespace ECommerce.Common.Helpers
             using (Aes aes = Aes.Create())
             {
                 aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv; // FIXED IV
+                aes.IV = iv; 
 
                 using (var encryptor = aes.CreateEncryptor())
                 using (var ms = new MemoryStream())
@@ -56,7 +57,7 @@ namespace ECommerce.Common.Helpers
                 using (var writer = new StreamWriter(cs))
                 {
                     writer.Write(plainText);
-                    writer.Close();   // make sure everything is written
+                    writer.Close();   
                     return Convert.ToBase64String(ms.ToArray());
                 }
             }
@@ -70,7 +71,7 @@ namespace ECommerce.Common.Helpers
             using (Aes aes = Aes.Create())
             {
                 aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;  // SAME IV USED FOR ENCRYPTION
+                aes.IV = iv;  
 
                 using (var decryptor = aes.CreateDecryptor())
                 using (var ms = new MemoryStream(buffer))
@@ -103,7 +104,7 @@ namespace ECommerce.Common.Helpers
             return list;
         }
 
-
+       
 
 
     }

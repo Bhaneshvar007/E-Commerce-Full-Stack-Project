@@ -29,17 +29,14 @@ namespace ECommerce.Web.Controllers
             return Ok(users);
         }
 
-        //[Route("GetUser")]
-        //[HttpGet]
-        //public IActionResult GetUser()
-        //{
-        //    var users = _iuser.GetUsers();
+        [Route("Registration")]
+        [HttpPost]
+        public ResponseModel RegistrationUser([FromBody] UserModel umodel)
+        {
+            return _iuser.AddUser(umodel);
+        }
 
-        //    if (users == null || !users.Any())
-        //        return NoContent();
-        //    return Ok(users);
-        //}
-
+        
 
         [Route("GetUserById/{UserId}")]
         [HttpGet]
@@ -54,18 +51,18 @@ namespace ECommerce.Web.Controllers
         }
 
 
-        [Route("Registration")]
-        [HttpPost]
-        public ResponseModel RegistrationUser([FromBody] UserModel umodel)
-        {
-            return _iuser.AddUser(umodel);
-        }
-
         [Route("LoginUser")]
         [HttpPost]
         public ResponseModel LoginUser([FromBody] UserModel umodel)
         {
             return _iuser.LoginUser(umodel);
+        }
+
+
+        [Route("LogOut")]
+        public ResponseModel LogOut()
+        {
+            return _iuser.LogoutUser();
         }
 
         [Route("UpdateUser")]

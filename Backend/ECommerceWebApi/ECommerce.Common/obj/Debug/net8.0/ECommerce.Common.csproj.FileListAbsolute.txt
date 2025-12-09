@@ -9,3 +9,16 @@ D:\Cylsys Private Limited\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECom
 D:\Cylsys Private Limited\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\refint\ECommerce.Common.dll
 D:\Cylsys Private Limited\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.pdb
 D:\Cylsys Private Limited\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ref\ECommerce.Common.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\bin\Debug\net8.0\ECommerce.Common.deps.json
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\bin\Debug\net8.0\ECommerce.Common.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\bin\Debug\net8.0\ECommerce.Common.pdb
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.csproj.AssemblyReference.cache
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.AssemblyInfoInputs.cache
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.AssemblyInfo.cs
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.csproj.CoreCompileInputs.cache
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.sourcelink.json
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\refint\ECommerce.Common.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ECommerce.Common.pdb
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Common\obj\Debug\net8.0\ref\ECommerce.Common.dll
