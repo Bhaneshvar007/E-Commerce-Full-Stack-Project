@@ -1,8 +1,9 @@
-﻿using ECommerce.Common.DB;
-using ECommerce.Common.Helpers;
-using ECommerce.Common.Models;
-using ECommerce.Common.Repository.Interface;
+﻿using Dapper;
+using ECommerce.Web.CommonHelper;
 using ECommerce.Web.DataAcessLayer.Interface;
+using ECommerce.Web.Extensions;
+using ECommerce.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,122 +11,180 @@ namespace ECommerce.Web.DataAcessLayer.Service
 {
     public class DalCetagory : IDalCetagory
     {
-        private readonly IAppDbContext _appDbContext;
-        private readonly ICetagoryRepository _cetagoryRepository;
-        private readonly IHelper _helper;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly string _connectionString;
+        private readonly IDALUserManager _userManager;
 
-
-        public DalCetagory(IAppDbContext appDbContext, ICetagoryRepository cetagoryRepository,IHelper helper)
+        public DalCetagory(IHttpContextAccessor httpContextAccessor, IConfiguration configuration,IDALUserManager dALUserManager)
         {
-            this._appDbContext = appDbContext;
-            this._cetagoryRepository = cetagoryRepository;
-            this._helper = helper;
+            this._httpContextAccessor = httpContextAccessor;
+            this._userManager = dALUserManager;
+            this._connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
-
+ 
         public List<CetagoryModel> GetCetagory()
         {
-            List<CetagoryModel> cetagories = new List<CetagoryModel>();
-            SqlParameter[] Params = {
-                new SqlParameter("@CetagoryId",null)
-            };
+            List<CetagoryModel> categories = new List<CetagoryModel>();
 
-            DataTable DT = _appDbContext.ExecuteProcedure("sp_GetCetagoryDetails", Params);
-            cetagories = _cetagoryRepository.GetCetagorys(DT);
-            return cetagories;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_GetCetagoryDetails", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CetagoryId", DBNull.Value); // all categories
+                    con.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            categories.Add(CommonProcess.MapCetagory(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Helper.WriteLog(ex.Message + " Error in GetCetagory()");
+                throw;
+            }
+
+            return categories;
         }
 
         public CetagoryModel GetCetagoryById(int id)
         {
-            CetagoryModel cetagories = new CetagoryModel();
-            SqlParameter[] Params = {
-                new SqlParameter("@CetagoryId",id)
-            };
-
-            DataTable DT = _appDbContext.ExecuteProcedure("sp_GetCetagoryDetails", Params);
-            cetagories = _cetagoryRepository.GetCetagorys(DT).FirstOrDefault();
-            return cetagories;
-        }
-
-        public ResponseModel InsertCetagory(CetagoryModel model)
-        {
-            ResponseModel ResModel = new ResponseModel();
+            CetagoryModel category = null;
 
             try
             {
-                SqlParameter[] Params = {
-                                    new SqlParameter("@CetagoryName", model.CetagoryName),
-                                    new SqlParameter("@Description", model.Description),
-                                    new SqlParameter("@CreatedBy", 0),
-                                    new SqlParameter("@ImageUrl", model.ImageUrl),
-                                };
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_GetCetagoryDetails", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@CetagoryId", id);
+                    con.Open();
 
-                var res = _appDbContext.ExecuteProcedure("sp_InsertUpadateCetagory", Params);
-
-                ResModel.Status = true;
-                ResModel.Message = "Cetagory created successfully!";
-
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            category = CommonProcess.MapCetagory(reader);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-                ResModel.Status = false;
-                ResModel.Message = "Error: " + ex.Message;
+                Helper.WriteLog($"Error in GetCetagoryById | CetagoryId: {id} | {ex.Message}");
+                throw;
             }
 
-            return ResModel;
+            return category;
         }
 
+ 
+ 
+        public ResponseModel InsertCetagory(CetagoryModel model)
+        {
+            ResponseModel res = new ResponseModel();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertUpadateCetagory", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@CetagoryName", model.CetagoryName);
+                    cmd.Parameters.AddWithValue("@Description", model.Description);
+                    cmd.Parameters.AddWithValue("@CreatedBy",model.CreatedBy);
+                    cmd.Parameters.AddWithValue("@ImageUrl", model.ImageUrl);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                res.Status = true;
+                res.Message = "Category created successfully!";
+            }
+            catch (Exception ex)
+            {
+                Helper.WriteLog(ex.Message + " Error in InsertCetagory()");
+                res.Status = false;
+                res.Message = "Something went wrong!";
+            }
+
+            return res;
+        }
 
         public ResponseModel UpdateCetagory(CetagoryModel model)
         {
-            ResponseModel ResModel = new ResponseModel();
-            DALUserManager ObjUserManeger = new DALUserManager();
+            ResponseModel res = new ResponseModel();
 
             try
             {
-                SqlParameter[] Params = {
-                                    new SqlParameter("@CetagoryId", model.CetagoryId),
-                                    new SqlParameter("@CetagoryName", model.CetagoryName),
-                                    new SqlParameter("@Description", model.Description),
-                                    new SqlParameter("@CreatedBy", ObjUserManeger.User.UserId),
-                                    new SqlParameter("@ImageUrl", model.ImageUrl),
-                                };
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertUpadateCetagory", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                var res = _appDbContext.ExecuteProcedure("sp_InsertUpadateCetagory", Params);
+                    cmd.Parameters.AddWithValue("@CetagoryId", model.CetagoryId);
+                    cmd.Parameters.AddWithValue("@CetagoryName", model.CetagoryName);
+                    cmd.Parameters.AddWithValue("@Description", model.Description);
+                    cmd.Parameters.AddWithValue("@CreatedBy", model.CreatedBy);
+                    cmd.Parameters.AddWithValue("@ImageUrl", model.ImageUrl);
 
-                ResModel.Status = true;
-                ResModel.Message = "Cetagory updated successfully!";
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
 
+                res.Status = true;
+                res.Message = "Category updated successfully!";
             }
             catch (Exception ex)
             {
-                ResModel.Status = false;
-                ResModel.Message = "Error: " + ex.Message;
+                Helper.WriteLog(ex.Message + " Error in UpdateCetagory()");
+                res.Status = false;
+                res.Message = "Update failed!";
             }
 
-            return ResModel;
+            return res;
         }
+
 
 
         public ResponseModel DeleteCetagory(int id)
         {
-            ResponseModel responseModel = new ResponseModel();
+            ResponseModel res = new ResponseModel();
+
             try
             {
-                _appDbContext.ExecuteQuery($"update tbl_Cetagory set IsActive = 0 where CetagoryId = {id}");
-                responseModel.Status = true;
-                responseModel.Message = "Record deleted sucessfully";
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                {
+                    string query = @"UPDATE tbl_Cetagory 
+                             SET IsActive = 0 
+                             WHERE CetagoryId = @CetagoryId";
+
+                    con.Execute(query, new { CetagoryId = id });
+                }
+
+                res.Status = true;
+                res.Message = "Category deleted successfully!";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                responseModel.Status = false;
-                responseModel.Message =   ex.Message ;   
-                ;
+                Helper.WriteLog(ex.Message + " Error in DeleteCetagory()");
+                res.Status = false;
+                res.Message = "Delete failed!";
             }
 
-            return responseModel;   
-             
+            return res;
         }
+
+
 
 
     }

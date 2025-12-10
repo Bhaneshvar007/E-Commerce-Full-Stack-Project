@@ -1,10 +1,8 @@
-﻿using ECommerce.Common.DB;
-using ECommerce.Common.Helpers;
-using ECommerce.Common.Models;
-using ECommerce.Common.Repository.Interface;
-using ECommerce.Common.Repository.Service;
+﻿using Dapper;
+using ECommerce.Web.CommonHelper;
 using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.Extensions;
+using ECommerce.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,118 +12,162 @@ namespace ECommerce.Web.DataAcessLayer.Service
     public class DalUser : IDalUser
     {
 
-        private readonly IUserRepository _userRepository;
-        private readonly IAppDbContext _appDbContext;
-        private readonly IHelper _helper;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly string _connectionString;
 
 
-        public DalUser(IUserRepository userRepository, IAppDbContext appDbContext, IHelper helper, IHttpContextAccessor httpContextAccessor)
+        public DalUser(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
-            this._userRepository = userRepository;
-            this._appDbContext = appDbContext;
-            this._helper = helper;
             this._httpContextAccessor = httpContextAccessor;
+            this._connectionString = configuration.GetConnectionString("DefaultConnection");
+
+
         }
         public List<UserModel> GetUsers()
         {
-            List<UserModel> userModel = new List<UserModel>();
-            SqlParameter[] Params = {
-                new SqlParameter("@UserId",null)
-            };
+            List<UserModel> users = new List<UserModel>();
 
-            DataTable DT = _appDbContext.ExecuteProcedure("sp_GetUserDetails", Params);
-            userModel = _userRepository.GetUsers(DT);
-            return userModel;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_GetUserDetails", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    con.Open();
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(CommonProcess.MapUser(reader));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Helper.WriteLog(ex.Message + "Error in GetUsers()");
+                throw;
+            }
+
+            return users;
         }
 
         public UserModel GetUserById(int id)
         {
-            UserModel userModel = new UserModel();
-            SqlParameter[] Params = {
-                new SqlParameter("@UserId",id)
-            };
+            UserModel user = null;
 
-            DataTable DT = _appDbContext.ExecuteProcedure("sp_GetUserDetails", Params);
-            userModel = _userRepository.GetUsers(DT).FirstOrDefault();
-            return userModel;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_GetUserDetails", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UserId", id);
+
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            user = CommonProcess.MapUser(reader);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Helper.WriteLog($"Error in GetUserById | UserId: {id} and Exception : {ex.Message}");
+                throw;
+            }
+
+            return user;
         }
 
         public ResponseModel AddUser(UserModel umodel)
         {
-            ResponseModel ResModel = new ResponseModel();
-
-            string EncryptedPassword = _helper.EncryptPassword(umodel.Password);
+            ResponseModel res = new ResponseModel();
 
             try
             {
-                SqlParameter[] Params = {
-                                    new SqlParameter("@UserName", umodel.UserName),
-                                    new SqlParameter("@Email", umodel.Email),
-                                    new SqlParameter("@Number", umodel.PhoneNumber),
-                                    new SqlParameter("@Password",EncryptedPassword),
-                                    new SqlParameter("@RoleId", umodel.RoleId),
-                                    new SqlParameter("@CreatedBy", umodel.CreatedBy),
-                                    new SqlParameter("@ImageUrl", umodel.ImageUrl),
-                                };
+                string encryptedPwd = Helper.EncryptPassword(umodel.Password);
 
-                var res = _appDbContext.ExecuteProcedure("sp_InsertUpadateUser", Params);
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertUpadateUser", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                ResModel.Status = true;
-                ResModel.Message = "User created successfully!";
+                    cmd.Parameters.AddWithValue("@UserName", umodel.UserName);
+                    cmd.Parameters.AddWithValue("@Email", umodel.Email);
+                    cmd.Parameters.AddWithValue("@Number", umodel.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Password", encryptedPwd);
+                    cmd.Parameters.AddWithValue("@RoleName", umodel.RoleName);
+                    cmd.Parameters.AddWithValue("@CreatedBy", umodel.CreatedBy);
+                    cmd.Parameters.AddWithValue("@ImageUrl", umodel.ImageUrl);
 
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                res.Status = true;
+                res.Message = "User created successfully";
             }
             catch (Exception ex)
             {
-                ResModel.Status = false;
-                ResModel.Message = "Error: " + ex.Message;
+                Helper.WriteLog(ex.Message + " Error in AddUser");
+                res.Status = false;
+                res.Message = "Something went wrong!";
             }
 
-            return ResModel;
+            return res;
         }
 
         public ResponseModel LoginUser(UserModel umodel)
         {
-            ResponseModel ResModel = new ResponseModel();
-            string EncryptedPassword = _helper.EncryptPassword(umodel.Password);
+            ResponseModel res = new ResponseModel();
 
             try
             {
-                SqlParameter[] Params = {
-                                    new SqlParameter("@Email", umodel.Email),
-                                    new SqlParameter("@RoleId", umodel.RoleId),
-                                    new SqlParameter("@Password", EncryptedPassword),
-                                };
+                string encryptedPwd = Helper.EncryptPassword(umodel.Password);
 
-                var DT = _appDbContext.ExecuteProcedure("sp_LoginUser", Params);
-                UserModel userModel = new UserModel();
-                userModel = _userRepository.GetUsers(DT).FirstOrDefault();
-
-                _httpContextAccessor.HttpContext.Session.SetObject("UserDetails", userModel);
-
-                if (DT.Rows.Count == 0)
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_LoginUser", con))
                 {
-                    ResModel.Status = false;
-                    ResModel.Message = "Invalid email or password!";
-                    return ResModel;
-                }
-                else
-                {
-                    var convertedData = _helper.ConvertToObjectList(DT);
-                    ResModel.Status = true;
-                    ResModel.Message = "Login successfully!";
-                    ResModel.Data = convertedData;
-                }
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Email", umodel.Email);
+                    cmd.Parameters.AddWithValue("@Password", encryptedPwd);
+                    cmd.Parameters.AddWithValue("@RoleName", umodel.RoleName);
+
+                    con.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                        {
+                            res.Status = false;
+                            res.Message = "Invalid Email or Password";
+                            return res;
+                        }
+
+                        UserModel user = CommonProcess.MapUser(reader);
 
 
+                        _httpContextAccessor.HttpContext.Session
+                            .SetObject("UserDetails", user);
+
+                        res.Status = true;
+                        res.Message = "Login successfully";
+                        res.Data = user;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                ResModel.Status = false;
-                ResModel.Message = "Error: " + ex.Message;
+                Helper.WriteLog(ex.Message + "Error in LoginUser");
+                res.Status = false;
+                res.Message = "Login failed!";
             }
 
-            return ResModel;
+            return res;
         }
 
         public ResponseModel LogoutUser()
@@ -134,7 +176,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
 
             try
             {
-                _httpContextAccessor.HttpContext.Session.Clear();      
+                _httpContextAccessor.HttpContext.Session.Clear();
                 _httpContextAccessor.HttpContext.Session.Remove("UserDetails");
 
                 res.Status = true;
@@ -148,38 +190,73 @@ namespace ECommerce.Web.DataAcessLayer.Service
 
             return res;
         }
- 
+
         public ResponseModel UpdateUser(UserModel umodel)
         {
-            ResponseModel ResModel = new ResponseModel();
-            string EncryptedPassword = _helper.EncryptPassword(umodel.Password);
+            ResponseModel res = new ResponseModel();
 
             try
             {
-                SqlParameter[] Params = {
-                                    new SqlParameter("@UserId", umodel.UserId),
-                                    new SqlParameter("@UserName", umodel.UserName),
-                                    new SqlParameter("@Email", umodel.Email),
-                                    new SqlParameter("@Number", umodel.PhoneNumber),
-                                    new SqlParameter("@Password", EncryptedPassword),
-                                    new SqlParameter("@RoleId", umodel.RoleId),
-                                    new SqlParameter("@CreatedBy", umodel.CreatedBy),
-                                    new SqlParameter("@ImageUrl", umodel.ImageUrl),
-                                };
+                string encryptedPwd = Helper.EncryptPassword(umodel.Password);
 
-                var res = _appDbContext.ExecuteProcedure("sp_InsertUpadateUser", Params);
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                using (SqlCommand cmd = new SqlCommand("sp_InsertUpadateUser", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                ResModel.Status = true;
-                ResModel.Message = "User updated successfully!";
+                    cmd.Parameters.AddWithValue("@UserId", umodel.UserId);
+                    cmd.Parameters.AddWithValue("@UserName", umodel.UserName);
+                    cmd.Parameters.AddWithValue("@Email", umodel.Email);
+                    cmd.Parameters.AddWithValue("@Number", umodel.PhoneNumber);
+                    cmd.Parameters.AddWithValue("@Password", encryptedPwd);
+                    cmd.Parameters.AddWithValue("@RoleName", umodel.RoleName);
+                    cmd.Parameters.AddWithValue("@CreatedBy", umodel.CreatedBy);
+                    cmd.Parameters.AddWithValue("@ImageUrl", umodel.ImageUrl);
 
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+
+                res.Status = true;
+                res.Message = "User updated successfully";
             }
             catch (Exception ex)
             {
-                ResModel.Status = false;
-                ResModel.Message = "Error: " + ex.Message;
+                Helper.WriteLog(ex.Message + "Error in UpdateUser");
+                res.Status = false;
+                res.Message = "Update failed!";
             }
 
-            return ResModel;
+            return res;
+        }
+
+
+        public ResponseModel DeleteUser(int userId)
+        {
+            ResponseModel res = new ResponseModel();
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(_connectionString))
+                {
+                    string query = @"UPDATE tbl_User 
+                             SET IsActive = 0 
+                             WHERE UserId = @UserId";
+
+                    con.Execute(query, new { UserId = userId });
+                }
+
+                res.Status = true;
+                res.Message = "User deleted successfully!";
+            }
+            catch (Exception ex)
+            {
+                Helper.WriteLog($"Error in DeleteUser | UserId: {userId} | {ex.Message}");
+                res.Status = false;
+                res.Message = "Delete failed!";
+            }
+
+            return res;
         }
 
     }

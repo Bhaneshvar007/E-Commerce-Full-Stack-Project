@@ -1,5 +1,109 @@
 [
   {
+    "ContainingType": "ECommerce.Web.Controllers.CetagoryController",
+    "Method": "DeleteCetagory",
+    "RelativePath": "api/Cetagory/DeleteCetagory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CetagoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ECommerce.Web.Models.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ECommerce.Web.Controllers.CetagoryController",
+    "Method": "Index",
+    "RelativePath": "api/Cetagory/GetCetagory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Web.Controllers.CetagoryController",
+    "Method": "GetCetagoryById",
+    "RelativePath": "api/Cetagory/GetCetagoryById/{CetagoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CetagoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ECommerce.Web.Controllers.CetagoryController",
+    "Method": "InsertCetagory",
+    "RelativePath": "api/Cetagory/InsertCetagory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cetagoryModel",
+        "Type": "ECommerce.Web.Models.CetagoryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ECommerce.Web.Models.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ECommerce.Web.Controllers.CetagoryController",
+    "Method": "UpdateCetagory",
+    "RelativePath": "api/Cetagory/UpdateCetagory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cetagoryModel",
+        "Type": "ECommerce.Web.Models.CetagoryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ECommerce.Web.Models.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "ECommerce.Web.Controllers.UserController",
     "Method": "Index",
     "RelativePath": "api/User/GetUser",
@@ -35,13 +139,33 @@
     "Parameters": [
       {
         "Name": "umodel",
-        "Type": "ECommerce.Common.Models.UserModel",
+        "Type": "ECommerce.Web.Models.UserModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ECommerce.Common.Models.ResponseModel",
+        "Type": "ECommerce.Web.Models.ResponseModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ECommerce.Web.Controllers.UserController",
+    "Method": "LogOut",
+    "RelativePath": "api/User/LogOut",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "ECommerce.Web.Models.ResponseModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,13 +185,13 @@
     "Parameters": [
       {
         "Name": "umodel",
-        "Type": "ECommerce.Common.Models.UserModel",
+        "Type": "ECommerce.Web.Models.UserModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ECommerce.Common.Models.ResponseModel",
+        "Type": "ECommerce.Web.Models.ResponseModel",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -87,13 +211,13 @@
     "Parameters": [
       {
         "Name": "umodel",
-        "Type": "ECommerce.Common.Models.UserModel",
+        "Type": "ECommerce.Web.Models.UserModel",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ECommerce.Common.Models.ResponseModel",
+        "Type": "ECommerce.Web.Models.ResponseModel",
         "MediaTypes": [
           "text/plain",
           "application/json",

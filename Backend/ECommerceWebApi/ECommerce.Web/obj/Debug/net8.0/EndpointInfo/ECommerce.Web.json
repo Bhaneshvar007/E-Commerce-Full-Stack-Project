@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/User/GetUser": {
+    "/api/Cetagory/GetCetagory": {
       "get": {
         "tags": [
-          "User"
+          "Cetagory"
         ],
         "responses": {
           "200": {
@@ -17,14 +17,14 @@
         }
       }
     },
-    "/api/User/GetUserById/{UserId}": {
+    "/api/Cetagory/GetCetagoryById/{CetagoryId}": {
       "get": {
         "tags": [
-          "User"
+          "Cetagory"
         ],
         "parameters": [
           {
-            "name": "UserId",
+            "name": "CetagoryId",
             "in": "path",
             "required": true,
             "schema": {
@@ -32,6 +32,153 @@
               "format": "int32"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Cetagory/InsertCetagory": {
+      "post": {
+        "tags": [
+          "Cetagory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CetagoryModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CetagoryModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CetagoryModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cetagory/UpdateCetagory": {
+      "post": {
+        "tags": [
+          "Cetagory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CetagoryModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CetagoryModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CetagoryModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cetagory/DeleteCetagory": {
+      "get": {
+        "tags": [
+          "Cetagory"
+        ],
+        "parameters": [
+          {
+            "name": "CetagoryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetUser": {
+      "get": {
+        "tags": [
+          "User"
         ],
         "responses": {
           "200": {
@@ -88,6 +235,29 @@
         }
       }
     },
+    "/api/User/GetUserById/{UserId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "UserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User/LoginUser": {
       "post": {
         "tags": [
@@ -112,6 +282,35 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/LogOut": {
+      "get": {
+        "tags": [
+          "User"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -187,6 +386,36 @@
   },
   "components": {
     "schemas": {
+      "CetagoryModel": {
+        "type": "object",
+        "properties": {
+          "cetagoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cetagoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ResponseModel": {
         "type": "object",
         "properties": {
@@ -203,28 +432,6 @@
           },
           "data": {
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "RoleModel": {
-        "type": "object",
-        "properties": {
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "roleName": {
-            "type": "string",
-            "nullable": true
-          },
-          "createdDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "createdBy": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -272,16 +479,13 @@
             "type": "integer",
             "format": "int32"
           },
-          "roleId": {
-            "type": "integer",
-            "format": "int32"
+          "roleName": {
+            "type": "string",
+            "nullable": true
           },
           "imageUrl": {
             "type": "string",
             "nullable": true
-          },
-          "roleModel": {
-            "$ref": "#/components/schemas/RoleModel"
           }
         },
         "additionalProperties": false

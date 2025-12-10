@@ -1,4 +1,4 @@
-﻿using ECommerce.Common.Models;
+﻿using ECommerce.Web.Models;
 using ECommerce.Web.DataAcessLayer.Interface;
 using Microsoft.AspNetCore.Mvc;
 

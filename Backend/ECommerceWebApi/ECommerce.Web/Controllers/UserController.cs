@@ -1,6 +1,6 @@
-﻿using ECommerce.Common.Models;
-using ECommerce.Web.DataAcessLayer.Interface;
+﻿using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.DataAcessLayer.Service;
+using ECommerce.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Web.Controllers
@@ -60,6 +60,7 @@ namespace ECommerce.Web.Controllers
 
 
         [Route("LogOut")]
+        [HttpGet]
         public ResponseModel LogOut()
         {
             return _iuser.LogoutUser();
