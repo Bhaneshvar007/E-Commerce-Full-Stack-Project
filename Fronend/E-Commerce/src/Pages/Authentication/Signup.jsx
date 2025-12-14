@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { SignupUser } from '../../Features/Auth/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { EmailValidatore, PasswordValidatore } from '../../utils/CommonLogic';
 
 const Signup = () => {
 
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.auth);
+  const [showPassword, setShowPassword] = useState(false);
 
 
   const [formData, setFormData] = useState({
@@ -17,7 +20,10 @@ const Signup = () => {
 
 
 
-  let [IsInputData, setIsInputData] = useState()
+  const [errors, setErrors] = useState({
+    password: null,
+    email: null,
+  });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +32,24 @@ const Signup = () => {
       ...formData,
       [name]: value,
     });
+
+
+
+    if (name === "password") {
+      setErrors((prev) => ({
+        ...prev,
+        password: PasswordValidatore(value),
+      }));
+    }
+
+    if (name === "email") {
+      setErrors((prev) => ({
+        ...prev,
+        email: EmailValidatore(value),
+      }));
+    }
+
+
   };
 
 
@@ -73,7 +97,7 @@ const Signup = () => {
               placeholder="Enter your email" id='email' name='email'
               value={formData.email} autoComplete="new-email"
               onChange={handleInputChange}
-              className="
+              className={`
             w-full px-4 py-2
             border border-gray-300
             rounded-md
@@ -81,50 +105,47 @@ const Signup = () => {
             transition-all duration-300
             focus:border-blue-500
             focus:ring-2 focus:ring-blue-500/30
-          "/>
+                  ${errors.email ? "border-red-500" : "border-gray-300"}
+
+          `} />
+            {errors.email && (
+              <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
+                {errors.email}
+              </p>
+            )}
           </div>
 
           <div className="mb-5">
             <label className="block text-sm font-medium mb-1" htmlFor='password'>Password</label>
             <div className="relative">
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter password" id='password' name='password'
                 value={formData.password}
                 onChange={handleInputChange} autoComplete="new-password"
-                className="
-                  w-full px-4 py-2 pr-10
+                className={`w-full px-4 py-2 pr-10
                   border border-gray-300
                   rounded-md
                   outline-none
                   transition-all duration-300
                   focus:border-blue-500
                   focus:ring-2 focus:ring-blue-500/30
-                "/>
+                  ${errors.password ? "border-red-500" : "border-gray-300"}
+                `} />
 
+              <span
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </div>
+            {errors.password && (
+              <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
+                {errors.password}
+              </p>
+            )}
           </div>
-          <div className="mb-5">
-            <label className="block text-sm font-medium mb-1" htmlFor='conformpassword'>Conform Password</label>
-            <div className="relative">
-              <input
-                type="password"
-                placeholder="Conform password" id='conformpassword' name='conformpassword'
-                value={formData.conformpassword} autoComplete="new-password"
-                onChange={handleInputChange}
-                className="
-                      w-full px-4 py-2 pr-10
-                      border border-gray-300
-                      rounded-md
-                      outline-none
-                      transition-all duration-300
-                      focus:border-blue-500
-                      focus:ring-2 focus:ring-blue-500/30
-                "/>
-
-            </div>
-          </div>
-
 
           <button
             type='submit'

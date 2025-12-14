@@ -1,9 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { loginApi, signupApi } from "../../Services/AuthApi";
 
+
 export const LoginUser = createAsyncThunk(
     "/User/Login",
     async (data, thunkAPI) => {
+
         try {
             const res = await loginApi(data);
             return res.data;
@@ -12,6 +14,7 @@ export const LoginUser = createAsyncThunk(
         }
     }
 );
+
 
 export const SignupUser = createAsyncThunk(
     "/User/Signup",
