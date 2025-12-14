@@ -1,10 +1,13 @@
 
+using ECommerce.Web.CommonHelper;
 using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.DataAcessLayer.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+Helper.Init(builder.Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

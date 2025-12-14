@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+p,
+label {
+  color: rgb(62, 61, 61);
+}
+
+h1 {
+  color: rgb(77, 76, 76);
+}
+
+button {
+  cursor: pointer;
+}
+
+:root {
+  --background: oklch(0.98 0.01 70);
+  --foreground: oklch(0.25 0.02 250);
+  --primary: oklch(0.4 0.15 340);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.02 200);
+  --secondary-foreground: oklch(0.25 0.02 250);
+  --accent: oklch(0.65 0.2 40);
+}

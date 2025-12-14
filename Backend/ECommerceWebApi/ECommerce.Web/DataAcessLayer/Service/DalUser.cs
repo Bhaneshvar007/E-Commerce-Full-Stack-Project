@@ -13,13 +13,13 @@ namespace ECommerce.Web.DataAcessLayer.Service
     {
 
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _connectionString;
+        private string _connectionString;
 
-
-        public DalUser(IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        public DalUser(IHttpContextAccessor httpContextAccessor)
         {
             this._httpContextAccessor = httpContextAccessor;
-            this._connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = Helper.GetConnectionString();
+
 
 
         }

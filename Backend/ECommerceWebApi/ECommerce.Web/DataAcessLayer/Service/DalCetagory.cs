@@ -12,14 +12,16 @@ namespace ECommerce.Web.DataAcessLayer.Service
     public class DalCetagory : IDalCetagory
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _connectionString;
         private readonly IDALUserManager _userManager;
+        private readonly string _connectionString;
 
-        public DalCetagory(IHttpContextAccessor httpContextAccessor, IConfiguration configuration,IDALUserManager dALUserManager)
+       
+
+        public DalCetagory(IHttpContextAccessor httpContextAccessor,IDALUserManager dALUserManager)
         {
             this._httpContextAccessor = httpContextAccessor;
             this._userManager = dALUserManager;
-            this._connectionString = configuration.GetConnectionString("DefaultConnection");
+            _connectionString = Helper.GetConnectionString();
         }
 
  

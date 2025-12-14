@@ -10,16 +10,31 @@ namespace ECommerce.Web.CommonHelper
 {
     public static class Helper
     {
-        private static IConfiguration _config;   
+        private static IConfiguration _config;
         private static readonly string key = "A1B2C3D4E5F6G7H8I9J0K1L2M3N4O5P6";
         private static readonly byte[] iv = Encoding.UTF8.GetBytes("1234567890123456");
 
-         public static void Init(IConfiguration configuration)
+        private static string _connectionString;
+
+
+        public static void Init(IConfiguration configuration)
         {
             _config = configuration;
+            _connectionString = configuration.GetConnectionString("DefaultConnection");
+
         }
 
         private static string Path => _config?["AppSettings:ErrorLogPath"] ?? "C:\\Logs";
+
+
+        public static string GetConnectionString()
+        {
+            if (string.IsNullOrEmpty(_connectionString))
+                throw new Exception("Connection string not initialized. Call Helper.Init() first.");
+
+            return _connectionString;
+        }
+
 
         public static void WriteLog(string message)
         {
@@ -56,7 +71,7 @@ namespace ECommerce.Web.CommonHelper
                     using (var writer = new StreamWriter(cs))
                     {
                         writer.Write(plainText);
-                    }  
+                    }
                     return Convert.ToBase64String(ms.ToArray());
                 }
             }
