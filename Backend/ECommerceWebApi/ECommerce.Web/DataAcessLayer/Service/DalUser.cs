@@ -84,7 +84,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
             return user;
         }
 
-        public ResponseModel AddUser(UserModel umodel)
+        public ResponseModel AddUser(UserSignupDto umodel)
         {
             ResponseModel res = new ResponseModel();
 
@@ -99,11 +99,11 @@ namespace ECommerce.Web.DataAcessLayer.Service
 
                     cmd.Parameters.AddWithValue("@UserName", umodel.UserName);
                     cmd.Parameters.AddWithValue("@Email", umodel.Email);
-                    cmd.Parameters.AddWithValue("@Number", umodel.PhoneNumber);
                     cmd.Parameters.AddWithValue("@Password", encryptedPwd);
+                    //cmd.Parameters.AddWithValue("@Number", umodel.PhoneNumber);
                     cmd.Parameters.AddWithValue("@RoleName", umodel.RoleName);
-                    cmd.Parameters.AddWithValue("@CreatedBy", umodel.CreatedBy);
-                    cmd.Parameters.AddWithValue("@ImageUrl", umodel.ImageUrl);
+                    //cmd.Parameters.AddWithValue("@CreatedBy", umodel.CreatedBy);
+                    //cmd.Parameters.AddWithValue("@ImageUrl", umodel.ImageUrl);
 
                     con.Open();
                     cmd.ExecuteNonQuery();

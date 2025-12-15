@@ -21,4 +21,13 @@ namespace ECommerce.Web.Models
         public string RoleName { get; set; }
         public string ImageUrl { get; set; }
     }
+
+    public class UserSignupDto
+    {
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string RoleName { get; set; }
+    }
+
 }

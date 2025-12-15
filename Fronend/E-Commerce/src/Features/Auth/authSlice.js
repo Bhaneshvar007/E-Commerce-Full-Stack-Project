@@ -17,13 +17,23 @@ export const LoginUser = createAsyncThunk(
 
 
 export const SignupUser = createAsyncThunk(
-    "/User/Signup",
+    "/User/SignUp",
     async (data, thunkAPI) => {
+        debugger
         try {
             const res = await signupApi(data);
+            debugger
+            if (res.data?.status === false) {
+                return thunkAPI.rejectWithValue({
+                    message: res.data.message || "Signup failed",
+                });
+            }
+
             return res.data;
         } catch (err) {
-            return thunkAPI.rejectWithValue(err.response.data);
+            return thunkAPI.rejectWithValue({
+                message: err.response?.data?.message || "Server error",
+            });
         }
     }
 )
@@ -36,13 +46,15 @@ const authSlice = createSlice({
         token: localStorage.getItem("token"),
         isLoading: false,
         error: null,
+        successMessage: null,
+
     },
     reducers: {
         logout: (state) => {
             state.user = null;
             state.token = null;
             localStorage.clear();
-        },
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -52,13 +64,13 @@ const authSlice = createSlice({
             })
             .addCase(LoginUser.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.user = action.payload.user;
+                state.successMessage = action.payload.message;
                 state.token = action.payload.token;
                 localStorage.setItem("token", action.payload.token);
             })
             .addCase(LoginUser.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload || action.error.message;
+                state.error = action.payload?.message || "Signup failed";
             })
 
             // SIGNUP
@@ -68,10 +80,11 @@ const authSlice = createSlice({
             .addCase(SignupUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.user = action.payload.user;
+                state.successMessage = action.payload.message;
             })
             .addCase(SignupUser.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload || action.error.message;
+                state.error = action.payload?.message || "Signup failed";
             });
     },
 });

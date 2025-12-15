@@ -5,6 +5,7 @@ export const loginApi = (data) => {
 };
 
 export const signupApi = (data) => {
-  return Api.post("/User/Signup", data);
+  debugger
+  return Api.post("/User/SignUp", data);
 };
 

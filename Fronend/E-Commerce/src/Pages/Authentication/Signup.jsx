@@ -1,28 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SignupUser } from '../../Features/Auth/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { EmailValidatore, PasswordValidatore } from '../../utils/CommonLogic';
+import { showError, showSuccess } from '../../utils/toast';
 
 const Signup = () => {
 
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.auth);
+  const { isLoading, error, successMessage, clearMessage } = useSelector(
+    (state) => state.auth
+  );
   const [showPassword, setShowPassword] = useState(false);
 
 
   const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    password: "",
-    conformpassword: "",
+    UserName: "",
+    Email: "",
+    Password: "",
+    RoleName: "Customer"
   });
 
-
-
   const [errors, setErrors] = useState({
-    password: null,
-    email: null,
+    Password: null,
+    Email: null,
   });
 
   const handleInputChange = (e) => {
@@ -35,17 +36,17 @@ const Signup = () => {
 
 
 
-    if (name === "password") {
+    if (name === "Password") {
       setErrors((prev) => ({
         ...prev,
-        password: PasswordValidatore(value),
+        Password: PasswordValidatore(value),
       }));
     }
 
-    if (name === "email") {
+    if (name === "Email") {
       setErrors((prev) => ({
         ...prev,
-        email: EmailValidatore(value),
+        Email: EmailValidatore(value),
       }));
     }
 
@@ -57,6 +58,35 @@ const Signup = () => {
     e.preventDefault();
     dispatch(SignupUser(formData));
   }
+
+  useEffect(() => {
+    if (successMessage) {
+      showSuccess(successMessage);
+    }
+
+    if (error) {
+      showError(error);
+    }
+  }, [successMessage, error]);
+
+
+
+
+  useEffect(() => {
+    if (successMessage) {
+      setFormData({
+        UserName: "",
+        Email: "",
+        Password: "",
+        RoleName: "Customer",
+      });
+
+      setErrors({
+        Password: null,
+        Email: null,
+      });
+    }
+  }, [successMessage]);
 
 
 
@@ -73,11 +103,11 @@ const Signup = () => {
         </p>
         <form onSubmit={handleInputSubmit}>
           <div className="mb-5">
-            <label className="block text-sm font-medium mb-1" htmlFor='fullname'>Full Name</label>
+            <label className="block text-sm font-medium mb-1" htmlFor='UserName'>Full Name</label>
             <input
-              type="text" id='fullname' name='fullname'
+              type="text" id='UserName' name='UserName'
               placeholder="Enter your name"
-              value={formData.fullname}
+              value={formData.UserName}
               onChange={handleInputChange}
               className="
             w-full px-4 py-2
@@ -91,10 +121,10 @@ const Signup = () => {
           </div>
 
           <div className="mb-5">
-            <label className="block text-sm font-medium mb-1" htmlFor='email'>Email</label>
+            <label className="block text-sm font-medium mb-1" htmlFor='Email'>Email</label>
             <input
               type="email"
-              placeholder="Enter your email" id='email' name='email'
+              placeholder="Enter your email" id='Email' name='Email'
               value={formData.email} autoComplete="new-email"
               onChange={handleInputChange}
               className={`
@@ -105,23 +135,23 @@ const Signup = () => {
             transition-all duration-300
             focus:border-blue-500
             focus:ring-2 focus:ring-blue-500/30
-                  ${errors.email ? "border-red-500" : "border-gray-300"}
+                  ${errors.Email ? "border-red-500" : "border-gray-300"}
 
           `} />
-            {errors.email && (
+            {errors.Email && (
               <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
-                {errors.email}
+                {errors.Email}
               </p>
             )}
           </div>
 
           <div className="mb-5">
-            <label className="block text-sm font-medium mb-1" htmlFor='password'>Password</label>
+            <label className="block text-sm font-medium mb-1" htmlFor='Password'>Password</label>
             <div className="relative">
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Enter password" id='password' name='password'
-                value={formData.password}
+                placeholder="Enter password" id='Password' name='Password'
+                value={formData.Password}
                 onChange={handleInputChange} autoComplete="new-password"
                 className={`w-full px-4 py-2 pr-10
                   border border-gray-300
@@ -130,7 +160,7 @@ const Signup = () => {
                   transition-all duration-300
                   focus:border-blue-500
                   focus:ring-2 focus:ring-blue-500/30
-                  ${errors.password ? "border-red-500" : "border-gray-300"}
+                  ${errors.Password ? "border-red-500" : "border-gray-300"}
                 `} />
 
               <span
@@ -140,12 +170,44 @@ const Signup = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-            {errors.password && (
+            {errors.Password && (
               <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
-                {errors.password}
+                {errors.Password}
               </p>
             )}
           </div>
+
+
+          <div className="mb-5">
+            <label className="block text-sm font-medium mb-1">
+              Register As
+            </label>
+
+            <div className="flex gap-4">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="RoleName"
+                  value="Customer"
+                  checked={formData.RoleName === "Customer"}
+                  onChange={handleInputChange}
+                />
+                Customer
+              </label>
+
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="radio"
+                  name="RoleName"
+                  value="Seller"
+                  checked={formData.RoleName === "Seller"}
+                  onChange={handleInputChange}
+                />
+                Seller
+              </label>
+            </div>
+          </div>
+
 
           <button
             type='submit'

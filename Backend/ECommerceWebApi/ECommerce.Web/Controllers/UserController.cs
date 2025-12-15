@@ -29,9 +29,9 @@ namespace ECommerce.Web.Controllers
             return Ok(users);
         }
 
-        [Route("Registration")]
+        [Route("SignUp")]
         [HttpPost]
-        public ResponseModel RegistrationUser([FromBody] UserModel umodel)
+        public ResponseModel RegistrationUser([FromBody] UserSignupDto umodel)
         {
             return _iuser.AddUser(umodel);
         }

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\dataacesslayer\\service\\dalcetagory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\dataacesslayer\\service\\dalcetagory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\controllers\\cetagorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\cetagorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\dataacesslayer\\service\\daluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\dataacesslayer\\service\\daluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\dataacesslayer\\service\\dalusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\dataacesslayer\\service\\dalusermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\dataacesslayer\\interface\\idaluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\dataacesslayer\\interface\\idaluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,15 +34,41 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CetagoryController.cs",
-              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\CetagoryController.cs",
-              "RelativeDocumentMoniker": "ECommerce.Web\\Controllers\\CetagoryController.cs",
-              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\CetagoryController.cs",
-              "RelativeToolTip": "ECommerce.Web\\Controllers\\CetagoryController.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwDYAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "IDalUser.cs",
+              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
+              "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
+              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
+              "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T16:17:00.345Z",
+              "WhenOpened": "2025-12-15T15:28:32.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "ECommerce.Web\\Models\\UserModel.cs",
+              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Models\\UserModel.cs",
+              "RelativeToolTip": "ECommerce.Web\\Models\\UserModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA7wBwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:27:26.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DalUser.cs",
+              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
+              "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
+              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
+              "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAA6wFgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T15:26:30.425Z",
               "EditorCaption": ""
             },
             {
@@ -53,48 +79,22 @@
               "RelativeDocumentMoniker": "ECommerce.Web\\Program.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Program.cs",
               "RelativeToolTip": "ECommerce.Web\\Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAUwDcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAADwvzkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T15:57:46.193Z",
+              "WhenOpened": "2025-12-15T15:12:04.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DalCetagory.cs",
-              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
-              "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
-              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
-              "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAA0wJEAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ECommerce.Web\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ECommerce.Web\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T15:56:38.066Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DALUserManager.cs",
-              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DALUserManager.cs",
-              "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DALUserManager.cs",
-              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DALUserManager.cs",
-              "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DALUserManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T15:56:34.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DalUser.cs",
-              "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
-              "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
-              "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
-              "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T15:56:09.014Z",
+              "WhenOpened": "2025-12-15T15:07:44.848Z",
               "EditorCaption": ""
             }
           ]

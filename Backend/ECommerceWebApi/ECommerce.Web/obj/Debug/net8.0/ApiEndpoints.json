@@ -178,14 +178,14 @@
   {
     "ContainingType": "ECommerce.Web.Controllers.UserController",
     "Method": "RegistrationUser",
-    "RelativePath": "api/User/Registration",
+    "RelativePath": "api/User/SignUp",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "umodel",
-        "Type": "ECommerce.Web.Models.UserModel",
+        "Type": "ECommerce.Web.Models.UserSignupDto",
         "IsRequired": true
       }
     ],

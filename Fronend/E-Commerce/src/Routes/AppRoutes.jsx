@@ -4,10 +4,12 @@ import { Route, Routes } from 'react-router-dom'
 import Login from '../Pages/Authentication/Login'
 import Signup from '../Pages/Authentication/Signup'
 import Navbar from '../Components/Navbar'
+import { Toaster } from 'react-hot-toast'
 
 const AppRoutes = () => {
   return (
     <div>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
