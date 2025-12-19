@@ -5,6 +5,7 @@ import Login from '../Pages/Authentication/Login'
 import Signup from '../Pages/Authentication/Signup'
 import Navbar from '../Components/Navbar'
 import { Toaster } from 'react-hot-toast'
+import Home from '../Pages/HomePage/Home'
 
 const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/navbar" element={<Navbar />} />
+        <Route path="/Home" element={<Home />} />
       </Routes>
     </div>
   )

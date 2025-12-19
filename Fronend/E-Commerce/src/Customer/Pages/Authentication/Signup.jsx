@@ -4,15 +4,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { EmailValidatore, PasswordValidatore } from '../../utils/CommonLogic';
 import { showError, showSuccess } from '../../utils/toast';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
 
   const dispatch = useDispatch();
-  const { isLoading, error, successMessage, clearMessage } = useSelector(
+  const { isLoading, error, successMessage } = useSelector(
     (state) => state.auth
   );
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigation = useNavigate();
 
   const [formData, setFormData] = useState({
     UserName: "",
@@ -62,6 +63,7 @@ const Signup = () => {
   useEffect(() => {
     if (successMessage) {
       showSuccess(successMessage);
+      navigation("/Login");
     }
 
     if (error) {

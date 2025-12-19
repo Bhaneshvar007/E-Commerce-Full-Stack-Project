@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\dataacesslayer\\interface\\idaluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\dataacesslayer\\interface\\idaluser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,29 +34,27 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "IDalUser.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
               "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Interface\\IDalUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T15:28:32.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T15:28:32.275Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserModel.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Models\\UserModel.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Models\\UserModel.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Models\\UserModel.cs",
               "RelativeToolTip": "ECommerce.Web\\Models\\UserModel.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA7wBwAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAUwB8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T15:27:26.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T15:27:26.282Z"
             },
             {
               "$type": "Document",
@@ -66,7 +64,7 @@
               "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
               "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAA6wFgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-15T15:26:30.425Z",
               "EditorCaption": ""
@@ -81,8 +79,7 @@
               "RelativeToolTip": "ECommerce.Web\\Program.cs",
               "ViewState": "AgIAACQAAAAAAAAAAADwvzkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T15:12:04.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T15:12:04.516Z"
             },
             {
               "$type": "Document",
@@ -92,10 +89,9 @@
               "RelativeDocumentMoniker": "ECommerce.Web\\Controllers\\UserController.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\UserController.cs",
               "RelativeToolTip": "ECommerce.Web\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAmwDgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-15T15:07:44.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-15T15:07:44.848Z"
             }
           ]
         }

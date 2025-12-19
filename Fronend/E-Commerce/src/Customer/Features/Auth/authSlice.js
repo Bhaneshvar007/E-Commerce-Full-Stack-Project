@@ -5,12 +5,20 @@ import { loginApi, signupApi } from "../../Services/AuthApi";
 export const LoginUser = createAsyncThunk(
     "/User/Login",
     async (data, thunkAPI) => {
-
-        try {
+        
+         try {
             const res = await loginApi(data);
+            if (res.data?.status === false) {
+                return thunkAPI.rejectWithValue({
+                    message: res.data.message || "Login failed",
+                });
+            }
+
             return res.data;
         } catch (err) {
-            return thunkAPI.rejectWithValue(err.response.data);
+            return thunkAPI.rejectWithValue({
+                message: err.response?.data?.message || "Internal server error !!",
+            });
         }
     }
 );
@@ -19,10 +27,9 @@ export const LoginUser = createAsyncThunk(
 export const SignupUser = createAsyncThunk(
     "/User/SignUp",
     async (data, thunkAPI) => {
-        debugger
+        
         try {
             const res = await signupApi(data);
-            debugger
             if (res.data?.status === false) {
                 return thunkAPI.rejectWithValue({
                     message: res.data.message || "Signup failed",
@@ -32,7 +39,7 @@ export const SignupUser = createAsyncThunk(
             return res.data;
         } catch (err) {
             return thunkAPI.rejectWithValue({
-                message: err.response?.data?.message || "Server error",
+                message: err.response?.data?.message || "Internal server error !!",
             });
         }
     }
@@ -70,7 +77,7 @@ const authSlice = createSlice({
             })
             .addCase(LoginUser.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload?.message || "Signup failed";
+                state.error = action.payload?.message || "Login failed";
             })
 
             // SIGNUP
@@ -84,7 +91,7 @@ const authSlice = createSlice({
             })
             .addCase(SignupUser.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = action.payload?.message || "Signup failed";
+                state.error = action.payload?.message || "Signup failed , please re-try";
             });
     },
 });

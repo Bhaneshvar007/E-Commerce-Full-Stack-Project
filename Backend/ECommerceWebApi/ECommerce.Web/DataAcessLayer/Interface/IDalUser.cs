@@ -7,7 +7,7 @@ namespace ECommerce.Web.DataAcessLayer.Interface
         public List<UserModel> GetUsers();
         public UserModel GetUserById(int id);
         public ResponseModel AddUser(UserSignupDto umodel);
-        public ResponseModel LoginUser(UserModel umodel);
+        public ResponseModel LoginUser(UserLoginDto umodel);
         public ResponseModel LogoutUser();
         public ResponseModel UpdateUser(UserModel umodel);
     }

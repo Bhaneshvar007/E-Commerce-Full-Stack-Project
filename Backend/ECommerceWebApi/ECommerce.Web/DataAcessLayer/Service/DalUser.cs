@@ -122,7 +122,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
             return res;
         }
 
-        public ResponseModel LoginUser(UserModel umodel)
+        public ResponseModel LoginUser(UserLoginDto umodel)
         {
             ResponseModel res = new ResponseModel();
 
@@ -136,8 +136,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Email", umodel.Email);
                     cmd.Parameters.AddWithValue("@Password", encryptedPwd);
-                    cmd.Parameters.AddWithValue("@RoleName", umodel.RoleName);
-
+ 
                     con.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -155,7 +154,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
                             .SetObject("UserDetails", user);
 
                         res.Status = true;
-                        res.Message = "Login successfully";
+                        res.Message = "User login successfully";
                         res.Data = user;
                     }
                 }

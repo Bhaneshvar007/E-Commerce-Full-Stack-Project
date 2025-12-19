@@ -258,7 +258,7 @@
         }
       }
     },
-    "/api/User/LoginUser": {
+    "/api/User/Login": {
       "post": {
         "tags": [
           "User"
@@ -267,17 +267,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserModel"
+                "$ref": "#/components/schemas/UserLoginDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserModel"
+                "$ref": "#/components/schemas/UserLoginDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserModel"
+                "$ref": "#/components/schemas/UserLoginDto"
               }
             }
           }
@@ -431,6 +431,20 @@
             "type": "boolean"
           },
           "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserLoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
             "nullable": true
           }
         },

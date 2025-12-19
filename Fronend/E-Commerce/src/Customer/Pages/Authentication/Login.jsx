@@ -1,28 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { EmailValidatore, PasswordValidatore } from '../../utils/CommonLogic';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoginUser } from '../../Features/Auth/authSlice';
+import { showError, showSuccess } from '../../utils/toast';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Login = () => {
 
     let [IsReset, SetIsReset] = useState(false);
     const dispatch = useDispatch();
-    const { isLoading } = useSelector((state) => state.auth);
+    const { isLoading, successMessage, error } = useSelector((state) => state.auth);
     const [showPassword, setShowPassword] = useState(false);
+    const navigation = useNavigate();
 
 
     const [formData, setFormData] = useState({
-        email: "",
-        password: "",
+        Email: "",
+        Password: "",
     });
 
 
 
     const [errors, setErrors] = useState({
-        password: null,
-        email: null,
+        Email: null,
     });
 
     const handleInputChange = (e) => {
@@ -33,24 +36,25 @@ const Login = () => {
             [name]: value,
         });
 
-
-
-        if (name === "password") {
-            setErrors((prev) => ({
-                ...prev,
-                password: PasswordValidatore(value),
-            }));
-        }
-
-        if (name === "email") {
+        if (name === "Email") {
             setErrors((prev) => ({
                 ...prev,
                 email: EmailValidatore(value),
             }));
         }
 
-
     };
+
+
+    useEffect(() => {
+        if (successMessage) {
+            showSuccess(successMessage);
+            navigation("/Home")
+        }
+        else {
+            showError(error);
+        }
+    }, [successMessage, error])
 
 
     const handleInputSubmit = (e) => {
@@ -73,10 +77,10 @@ const Login = () => {
 
                     <form onSubmit={handleInputSubmit}>
                         <div className="mb-5">
-                            <label className="block text-sm font-medium mb-1" htmlFor='email'>Email</label>
+                            <label className="block text-sm font-medium mb-1" htmlFor='Email'>Email</label>
                             <input
                                 type="email"
-                                placeholder="Enter your email" id='email' name='email'
+                                placeholder="Enter your email" id='Email' name='Email'
                                 value={formData.email} autoComplete="new-email"
                                 onChange={handleInputChange}
                                 className={`
@@ -87,22 +91,22 @@ const Login = () => {
                                     transition-all duration-300
                                     focus:border-blue-500
                                     focus:ring-2 focus:ring-blue-500/30
-                                        ${errors.email ? "border-red-500" : "border-gray-300"}
+                                        ${errors.Email ? "border-red-500" : "border-gray-300"}
 
                                 `} />
-                            {errors.email && (
+                            {errors.Email && (
                                 <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
-                                    {errors.email}
+                                    {errors.Email}
                                 </p>
                             )}
                         </div>
 
                         <div className="mb-5">
-                            <label className="block text-sm font-medium mb-1" htmlFor='password'>Password</label>
+                            <label className="block text-sm font-medium mb-1" htmlFor='Password'>Password</label>
                             <div className="relative">
                                 <input
                                     type={showPassword ? "text" : "password"}
-                                    placeholder="Enter password" id='password' name='password'
+                                    placeholder="Enter password" id='Password' name='Password'
                                     value={formData.password}
                                     onChange={handleInputChange} autoComplete="new-password"
                                     className={`w-full px-4 py-2 pr-10
@@ -122,11 +126,7 @@ const Login = () => {
                                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                                 </span>
                             </div>
-                            {errors.password && (
-                                <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
-                                    {errors.password}
-                                </p>
-                            )}
+
                         </div>
 
                         <div className="flex items-center justify-between mb-6">

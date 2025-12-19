@@ -51,9 +51,9 @@ namespace ECommerce.Web.Controllers
         }
 
 
-        [Route("LoginUser")]
+        [Route("Login")]
         [HttpPost]
-        public ResponseModel LoginUser([FromBody] UserModel umodel)
+        public ResponseModel LoginUser([FromBody] UserLoginDto umodel)
         {
             return _iuser.LoginUser(umodel);
         }

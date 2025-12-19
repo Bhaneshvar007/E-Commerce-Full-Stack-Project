@@ -132,14 +132,14 @@
   {
     "ContainingType": "ECommerce.Web.Controllers.UserController",
     "Method": "LoginUser",
-    "RelativePath": "api/User/LoginUser",
+    "RelativePath": "api/User/Login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "umodel",
-        "Type": "ECommerce.Web.Models.UserModel",
+        "Type": "ECommerce.Web.Models.UserLoginDto",
         "IsRequired": true
       }
     ],
