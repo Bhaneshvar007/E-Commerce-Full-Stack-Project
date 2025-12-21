@@ -18,16 +18,17 @@ const HeroSection = () => {
                                     Curated collections of premium lifestyle products designed to elevate your everyday moments.
                                 </p>
                                 <div className="flex gap-3">
-                                    <button className="px-8 py-3 bg-purple-700 text-[var(--primary-foreground)] rounded-full font-medium  transition hover:bg-purple-700/90">
+                                    <button className="px-8 py-3 bg-blue-600 text-(--primary-foreground) rounded-full font-medium  transition hover:bg-blue-700/90">
                                         Shop Now
                                     </button>
-                                    <button className="px-8 py-3 bg-[var(--secondary)] text-[var(--secondary-foreground)] rounded-full font-medium hover:bg-[var(--secondary)] transition border border-[var(--border)]">
+                                    <button className="px-8 py-3 bg-(--secondary) text-(--secondary-foreground) rounded-full font-medium hover:bg-(--secondary)
+                                     transition border border-(--border)">
                                         Explore Collections
                                     </button>
                                 </div>
                             </div>
 
-                            <div className="h-64 md:h-96 bg-gradient-to-br from-accent/20 via-primary/10 to-accent/20 rounded-2xl flex items-center justify-center">
+                            <div className="h-64 md:h-96 bg-linear-to-br from-accent/20 via-primary/10 to-accent/20 rounded-2xl flex items-center justify-center">
                                 <img
                                     src={image}
                                     alt="Featured lifestyle product"

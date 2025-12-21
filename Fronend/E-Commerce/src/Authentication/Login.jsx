@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { EmailValidatore, PasswordValidatore } from '../../utils/CommonLogic';
+import { EmailValidatore, PasswordValidatore } from '../utils/CommonLogic';
 import { useDispatch, useSelector } from 'react-redux';
-import { LoginUser } from '../../Features/Auth/authSlice';
-import { showError, showSuccess } from '../../utils/toast';
+import { LoginUser } from '../Customer/Features/Auth/authSlice';
+import { showError, showSuccess } from '../utils/toast';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -39,7 +39,7 @@ const Login = () => {
         if (name === "Email") {
             setErrors((prev) => ({
                 ...prev,
-                email: EmailValidatore(value),
+                Email: EmailValidatore(value),
             }));
         }
 
@@ -47,11 +47,12 @@ const Login = () => {
 
 
     useEffect(() => {
+ 
         if (successMessage) {
             showSuccess(successMessage);
             navigation("/Home")
         }
-        else {
+        if (error) {
             showError(error);
         }
     }, [successMessage, error])
@@ -80,8 +81,8 @@ const Login = () => {
                             <label className="block text-sm font-medium mb-1" htmlFor='Email'>Email</label>
                             <input
                                 type="email"
-                                placeholder="Enter your email" id='Email' name='Email'
-                                value={formData.email} autoComplete="new-email"
+                                placeholder="Enter your email" id='Email' name='Email' required
+                                value={formData.Email} autoComplete="new-email"
                                 onChange={handleInputChange}
                                 className={`
                                     w-full px-4 py-2
@@ -95,7 +96,7 @@ const Login = () => {
 
                                 `} />
                             {errors.Email && (
-                                <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
+                                <p className="text-xs text-red-500! mt-1 font-medium opacity-100">
                                     {errors.Email}
                                 </p>
                             )}
@@ -106,7 +107,7 @@ const Login = () => {
                             <div className="relative">
                                 <input
                                     type={showPassword ? "text" : "password"}
-                                    placeholder="Enter password" id='Password' name='Password'
+                                    placeholder="Enter password" id='Password' name='Password' required
                                     value={formData.password}
                                     onChange={handleInputChange} autoComplete="new-password"
                                     className={`w-full px-4 py-2 pr-10

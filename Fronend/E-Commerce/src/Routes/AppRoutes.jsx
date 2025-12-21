@@ -1,11 +1,11 @@
 
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Login from '../Pages/Authentication/Login'
-import Signup from '../Pages/Authentication/Signup'
-import Navbar from '../Components/Navbar'
+import Login from '../Authentication/Login'
+import Signup from '../Authentication/Signup'
+import Navbar from '../Customer/Components/Navbar'
 import { Toaster } from 'react-hot-toast'
-import Home from '../Pages/HomePage/Home'
+import Home from '../Customer/Pages/HomePage/Home'
 
 const AppRoutes = () => {
   return (

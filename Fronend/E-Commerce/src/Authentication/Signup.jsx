@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { SignupUser } from '../../Features/Auth/authSlice';
+import { SignupUser } from '../Customer/Features/Auth/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { EmailValidatore, PasswordValidatore } from '../../utils/CommonLogic';
-import { showError, showSuccess } from '../../utils/toast';
+import { EmailValidatore, PasswordValidatore } from '../utils/CommonLogic';
+import { showError, showSuccess } from '../utils/toast';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
@@ -107,7 +107,7 @@ const Signup = () => {
           <div className="mb-5">
             <label className="block text-sm font-medium mb-1" htmlFor='UserName'>Full Name</label>
             <input
-              type="text" id='UserName' name='UserName'
+              type="text" id='UserName' name='UserName' required
               placeholder="Enter your name"
               value={formData.UserName}
               onChange={handleInputChange}
@@ -126,8 +126,8 @@ const Signup = () => {
             <label className="block text-sm font-medium mb-1" htmlFor='Email'>Email</label>
             <input
               type="email"
-              placeholder="Enter your email" id='Email' name='Email'
-              value={formData.email} autoComplete="new-email"
+              placeholder="Enter your email" id='Email' name='Email' required
+              value={formData.Email} autoComplete="new-email"
               onChange={handleInputChange}
               className={`
             w-full px-4 py-2
@@ -141,7 +141,7 @@ const Signup = () => {
 
           `} />
             {errors.Email && (
-              <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
+              <p className="text-xs text-red-500! mt-1 font-medium opacity-100">
                 {errors.Email}
               </p>
             )}
@@ -151,7 +151,7 @@ const Signup = () => {
             <label className="block text-sm font-medium mb-1" htmlFor='Password'>Password</label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? "text" : "password"} required
                 placeholder="Enter password" id='Password' name='Password'
                 value={formData.Password}
                 onChange={handleInputChange} autoComplete="new-password"
@@ -173,7 +173,7 @@ const Signup = () => {
               </span>
             </div>
             {errors.Password && (
-              <p className="text-xs !text-red-500 mt-1 font-medium opacity-100">
+              <p className="text-xs text-red-500! mt-1 font-medium opacity-100">
                 {errors.Password}
               </p>
             )}

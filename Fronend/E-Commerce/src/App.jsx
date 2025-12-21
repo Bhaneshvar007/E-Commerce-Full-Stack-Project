@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import AppRoutes from './Customer/Routes/AppRoutes'
+import AppRoutes from './Routes/AppRoutes'
 
 function App() {
 
   return (
-    <div  className='bg-[var(--background)]'>
+    <div  className='bg-(--background)'>
 
       <AppRoutes />
     </div>

@@ -22,7 +22,7 @@ const Navbar = () => {
                 style={{ backgroundColor: "oklch(0.98 0.01 70)" }}
             >
                 <a href="/Home" className="flex items-center gap-2 cursor-pointer">
-                    <div className="w-9 h-9 rounded-full bg-purple-700 flex items-center justify-center text-white font-semibold">
+                    <div className="w-9 h-9 rounded-full bg-blue-700 flex items-center justify-center text-white font-semibold">
                         SE
                     </div>
                     <span className="text-lg font-semibold text-gray-900">
