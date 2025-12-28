@@ -1,10 +1,15 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ECommerce.Web.Models;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace ECommerce.Web.CommonHelper
 {
@@ -110,6 +115,34 @@ namespace ECommerce.Web.CommonHelper
             }
 
             return list;
+        }
+
+        public static string GenerateToken(UserModel user)
+        {
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserId.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(ClaimTypes.Role, user.RoleName ?? "Customer")
+            };
+
+            var securityKey = new SymmetricSecurityKey(
+               Encoding.UTF8.GetBytes(_config["Jwt:Key"])
+            );
+
+            var creds = new SigningCredentials(
+                securityKey,
+                SecurityAlgorithms.HmacSha256
+            );
+            var token = new JwtSecurityToken(
+                issuer: _config?["Jwt:Issuer"],
+                audience: _config?["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

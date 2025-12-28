@@ -150,12 +150,26 @@ namespace ECommerce.Web.DataAcessLayer.Service
                         UserModel user = CommonProcess.MapUser(reader);
 
 
-                        _httpContextAccessor.HttpContext.Session
-                            .SetObject("UserDetails", user);
+                        string token = Helper.GenerateToken(user);
+
+
+                        //_httpContextAccessor.HttpContext.Session
+                        //    .SetObject("UserDetails", user);
 
                         res.Status = true;
                         res.Message = "User login successfully";
-                        res.Data = user;
+                        res.Data = new
+                        {
+                            token = token,
+                            expiresIn = 3600,
+                            user = new
+                            {
+                                user.UserId,
+                                user.UserName,
+                                user.Email,
+                                user.RoleName
+                            }
+                        };
                     }
                 }
             }

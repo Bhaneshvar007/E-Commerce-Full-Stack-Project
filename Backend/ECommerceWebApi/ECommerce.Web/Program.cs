@@ -39,6 +39,9 @@ builder.Services.AddSession(options =>
 builder.Services.AddScoped<IDalUser, DalUser>();
 builder.Services.AddScoped<IDalCetagory, DalCetagory>();
 builder.Services.AddScoped<IDALUserManager, DALUserManager>();
+builder.Services.AddScoped<IDalSubCetagory, DalSubcetagory>();
+builder.Services.AddScoped<IDALProducts, DALProducts>();
+builder.Services.AddScoped<IDalSellerInventory, DalSellerInventory>();
 
 // ================== BUILD ==================
 var app = builder.Build();

@@ -1,0 +1,1 @@
+26-Dec-2025 20.52.16	@CetagoryId is not a parameter for procedure sp_GetProductsDetails. Error in GetProducts()

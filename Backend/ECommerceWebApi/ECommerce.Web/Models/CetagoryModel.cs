@@ -12,8 +12,8 @@ namespace ECommerce.Web.Models
         public int CetagoryId { get; set; }
         public string CetagoryName { get; set; }
         public string Description { get; set; }
-        public int CreatedBy { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public string ImageUrl { get; set; }
+        public int? CreatedBy { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }

@@ -37,3 +37,8 @@ D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\obj\Debug\net8
 D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\obj\Debug\net8.0\ECommerce.Web.genruntimeconfig.cache
 D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\obj\Debug\net8.0\ref\ECommerce.Web.dll
 D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\bin\Debug\net8.0\Dapper.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Final Full Stack Project\Backend\ECommerceWebApi\ECommerce.Web\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

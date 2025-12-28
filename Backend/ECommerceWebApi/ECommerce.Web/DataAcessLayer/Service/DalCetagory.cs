@@ -12,19 +12,17 @@ namespace ECommerce.Web.DataAcessLayer.Service
     public class DalCetagory : IDalCetagory
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly IDALUserManager _userManager;
         private readonly string _connectionString;
 
-       
 
-        public DalCetagory(IHttpContextAccessor httpContextAccessor,IDALUserManager dALUserManager)
+
+        public DalCetagory(IHttpContextAccessor httpContextAccessor, IDALUserManager dALUserManager)
         {
             this._httpContextAccessor = httpContextAccessor;
-            this._userManager = dALUserManager;
-            _connectionString = Helper.GetConnectionString();
+            this._connectionString = Helper.GetConnectionString();
         }
 
- 
+
         public List<CetagoryModel> GetCetagory()
         {
             List<CetagoryModel> categories = new List<CetagoryModel>();
@@ -87,8 +85,8 @@ namespace ECommerce.Web.DataAcessLayer.Service
             return category;
         }
 
- 
- 
+
+
         public ResponseModel InsertCetagory(CetagoryModel model)
         {
             ResponseModel res = new ResponseModel();
@@ -102,7 +100,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
 
                     cmd.Parameters.AddWithValue("@CetagoryName", model.CetagoryName);
                     cmd.Parameters.AddWithValue("@Description", model.Description);
-                    cmd.Parameters.AddWithValue("@CreatedBy",model.CreatedBy);
+                    cmd.Parameters.AddWithValue("@CreatedBy", model.CreatedBy);
                     cmd.Parameters.AddWithValue("@ImageUrl", model.ImageUrl);
 
                     con.Open();
@@ -174,7 +172,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
                 }
 
                 res.Status = true;
-                res.Message = "Category deleted successfully!";
+                res.Message = "Data deleted successfully!";
             }
             catch (Exception ex)
             {
