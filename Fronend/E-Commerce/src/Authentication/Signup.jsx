@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { SignupUser } from '../Customer/Features/Auth/authSlice';
+import { SignupUser } from '../Features/Auth/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { EmailValidatore, PasswordValidatore } from '../utils/CommonLogic';

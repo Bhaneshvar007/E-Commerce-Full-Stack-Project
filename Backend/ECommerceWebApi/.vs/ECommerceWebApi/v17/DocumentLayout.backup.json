@@ -62,8 +62,7 @@
               "RelativeToolTip": "ECommerce.Web\\CommonHelper\\CommonProcess.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAIwEUAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T17:10:45.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T17:10:45.369Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\ProductsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T17:05:45.056Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T17:05:45.056Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\CetagoryController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T17:05:42.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T17:05:42.693Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "ECommerce.Web\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T16:59:42.544Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T16:59:42.544Z"
             },
             {
               "$type": "Document",
@@ -140,8 +136,7 @@
               "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Interface\\IDalSellerInventory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T16:06:54.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T16:06:54.251Z"
             },
             {
               "$type": "Document",
@@ -151,7 +146,7 @@
               "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalSellerInventory.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalSellerInventory.cs",
               "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalSellerInventory.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAIwFcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAmwIkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-28T16:06:22.163Z",
               "EditorCaption": ""
@@ -166,8 +161,7 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T16:04:58.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T16:04:58.803Z"
             },
             {
               "$type": "Document",
@@ -179,8 +173,7 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\SellerInventoryController.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAAewC8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-28T16:04:03.275Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-28T16:04:03.275Z"
             }
           ]
         }

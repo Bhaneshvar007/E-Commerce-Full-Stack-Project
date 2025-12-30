@@ -5,7 +5,7 @@ import TrustBar from './TrustBar'
  
 const Home = () => {
     return (
-        <div>
+        <div className=''  style={{ backgroundColor: "oklch(0.98 0.01 70)" }}>
             <Navbar />
             <HeroSection />
             <TrustBar/>

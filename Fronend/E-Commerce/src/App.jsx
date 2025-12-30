@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import AppRoutes from './Routes/AppRoutes'
+import VendoreNavbar from './Vendor/Component/VendoreNavbar'
 
 function App() {
 
   return (
-    <div  className='bg-(--background)'>
-
+    <div >
+      <VendoreNavbar />
       <AppRoutes />
     </div>
   )
