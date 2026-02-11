@@ -1,6 +1,11 @@
 ﻿using ECommerce.Web.CommonHelper;
 using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.DataAcessLayer.Service;
+using ECommerce.Web.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+ 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,6 +48,11 @@ builder.Services.AddScoped<IDalSubCetagory, DalSubcetagory>();
 builder.Services.AddScoped<IDALProducts, DALProducts>();
 builder.Services.AddScoped<IDalSellerInventory, DalSellerInventory>();
 
+
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
+
+
 // ================== BUILD ==================
 var app = builder.Build();
 
@@ -56,11 +66,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// 🔥 UseCors → Authorization se pehle
+// UseCors → Authorization se pehle
 app.UseCors("AllowReactApp");
 
 app.UseSession();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

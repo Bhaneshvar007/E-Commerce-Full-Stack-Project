@@ -1,5 +1,6 @@
 ﻿using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,7 @@ namespace ECommerce.Web.Controllers
             this._dalProduct = dALProducts;
         }
 
+        [Authorize]
         [Route("GetProducts")]
         [HttpGet]
         public IActionResult Index()
@@ -28,7 +30,7 @@ namespace ECommerce.Web.Controllers
             return Ok(products);
         }
 
-
+        [Authorize]
         [Route("GetProductById/{ProductId}")]
         [HttpGet]
         public IActionResult GetProductsById(int ProductId)
@@ -41,7 +43,7 @@ namespace ECommerce.Web.Controllers
             return Ok(cetagory);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("InsertProduct")]
         public ResponseModel InsertProduct(ProductModel model)
@@ -49,6 +51,7 @@ namespace ECommerce.Web.Controllers
             return _dalProduct.InsertProducts(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("UpdateProduct")]
         public ResponseModel UpdateProduct(ProductModel model)
@@ -57,6 +60,7 @@ namespace ECommerce.Web.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
         [Route("DeleteProduct")]
         [HttpGet]
         public ResponseModel DeleteProduct(int productId)

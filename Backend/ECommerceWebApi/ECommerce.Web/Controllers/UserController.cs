@@ -1,12 +1,14 @@
 ﻿using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.DataAcessLayer.Service;
 using ECommerce.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class UserController : Controller
     {
 
@@ -18,6 +20,7 @@ namespace ECommerce.Web.Controllers
             this._iuser = iuser;
         }
 
+        //[Authorize(Roles = "Admin")]
         [Route("GetUser")]
         [HttpGet]
         public IActionResult Index()

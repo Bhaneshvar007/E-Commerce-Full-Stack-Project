@@ -901,7 +901,8 @@
         "properties": {
           "cetagoryId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
           },
           "cetagoryName": {
             "type": "string",

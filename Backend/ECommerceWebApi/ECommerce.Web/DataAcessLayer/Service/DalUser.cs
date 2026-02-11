@@ -99,7 +99,7 @@ namespace ECommerce.Web.DataAcessLayer.Service
 
                     cmd.Parameters.AddWithValue("@UserName", umodel.UserName);
                     cmd.Parameters.AddWithValue("@Email", umodel.Email);
-                    cmd.Parameters.AddWithValue("@Password", encryptedPwd);
+                    cmd.Parameters.AddWithValue("@Password", umodel.Password);
                     //cmd.Parameters.AddWithValue("@Number", umodel.PhoneNumber);
                     cmd.Parameters.AddWithValue("@RoleName", umodel.RoleName);
                     //cmd.Parameters.AddWithValue("@CreatedBy", umodel.CreatedBy);
@@ -135,42 +135,39 @@ namespace ECommerce.Web.DataAcessLayer.Service
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Email", umodel.Email);
-                    cmd.Parameters.AddWithValue("@Password", encryptedPwd);
+                    cmd.Parameters.AddWithValue("@Password", umodel.Password);
  
                     con.Open();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        if (!reader.Read())
+                        if (reader.Read())
+                        {
+                            UserModel user = CommonProcess.MapUser(reader);
+
+                            string token = Helper.GenerateToken(user);
+
+                            res.Status = true;
+                            res.Message = "User login successfully";
+                            res.Data = new
+                            {
+                                token = token,
+                                expiresIn = 3600,
+                                user = new
+                                {
+                                    user.UserId,
+                                    user.UserName,
+                                    user.Email,
+                                    user.RoleName
+                                }
+                            };
+                        }
+                        else
                         {
                             res.Status = false;
                             res.Message = "Invalid Email or Password";
-                            return res;
                         }
-
-                        UserModel user = CommonProcess.MapUser(reader);
-
-
-                        string token = Helper.GenerateToken(user);
-
-
-                        //_httpContextAccessor.HttpContext.Session
-                        //    .SetObject("UserDetails", user);
-
-                        res.Status = true;
-                        res.Message = "User login successfully";
-                        res.Data = new
-                        {
-                            token = token,
-                            expiresIn = 3600,
-                            user = new
-                            {
-                                user.UserId,
-                                user.UserName,
-                                user.Email,
-                                user.RoleName
-                            }
-                        };
                     }
+
                 }
             }
             catch (Exception ex)

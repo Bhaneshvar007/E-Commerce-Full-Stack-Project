@@ -1,5 +1,6 @@
 ﻿using ECommerce.Web.DataAcessLayer.Interface;
 using ECommerce.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Web.Controllers
@@ -12,6 +13,9 @@ namespace ECommerce.Web.Controllers
         public SubCetagoryController(IDalSubCetagory dalSubCetagory) {
             this._dalSubCetagory = dalSubCetagory;
         }
+
+
+        [Authorize]
         [Route("GetSubCetagory")]
         [HttpGet]
         public IActionResult Index()
@@ -24,7 +28,7 @@ namespace ECommerce.Web.Controllers
             return Ok(subcetagory);
         }
 
-
+        [Authorize]
         [Route("GetSubCetagoryById/{SubCetagoryId}")]
         [HttpGet]
         public IActionResult GetSubCetagoryById(int SubCetagoryId)
@@ -38,6 +42,7 @@ namespace ECommerce.Web.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("InsertSubCetagory")]
         public ResponseModel InsertSubCetagory(SubCetagoryModel SubcetagoryModel)
@@ -45,6 +50,7 @@ namespace ECommerce.Web.Controllers
             return _dalSubCetagory.InsertSubCetagory(SubcetagoryModel);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("UpdateSubCetagory")]
         public ResponseModel UpdateSubCetagory(SubCetagoryModel subcetagoryModel)
@@ -53,6 +59,7 @@ namespace ECommerce.Web.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
         [Route("DeleteSubCetagory")]
         [HttpGet]
         public ResponseModel DeleteSUbCetagory(int SubCetagoryId)

@@ -9,7 +9,7 @@ namespace ECommerce.Web.Models
 {
     public class CetagoryModel
     {
-        public int CetagoryId { get; set; }
+        public int? CetagoryId { get; set; }
         public string CetagoryName { get; set; }
         public string Description { get; set; }
         public int? CreatedBy { get; set; }
