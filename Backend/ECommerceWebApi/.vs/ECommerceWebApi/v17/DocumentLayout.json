@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\controllers\\sellerinventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\sellerinventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\controllers\\cetagorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\cetagorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -39,10 +43,6 @@
       "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\commonhelper\\helper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\controllers\\sellerinventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\sellerinventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|d:\\final full stack project\\backend\\ecommercewebapi\\ecommerce.web\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5684DD17-833D-4ECE-BE4C-CD4CC704B08F}|ECommerce.Web\\ECommerce.Web.csproj|solutionrelative:ecommerce.web\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -58,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "JwtServiceExtension.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Extensions\\JwtServiceExtension.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Extensions\\JwtServiceExtension.cs",
@@ -70,12 +70,11 @@
               "RelativeToolTip": "ECommerce.Web\\Extensions\\JwtServiceExtension.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAACsAAABxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T16:52:25.055Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T16:52:25.055Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Program.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Program.cs",
@@ -83,12 +82,11 @@
               "RelativeToolTip": "ECommerce.Web\\Program.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T16:44:59.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T16:44:59.264Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DalCetagory.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
@@ -96,12 +94,11 @@
               "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalCetagory.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAWwF4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T16:41:07.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T16:41:07.722Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CetagoryModel.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Models\\CetagoryModel.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Models\\CetagoryModel.cs",
@@ -109,12 +106,11 @@
               "RelativeToolTip": "ECommerce.Web\\Models\\CetagoryModel.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAowAsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T16:37:55.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T16:37:55.068Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CommonProcess.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\CommonHelper\\CommonProcess.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\CommonHelper\\CommonProcess.cs",
@@ -122,12 +118,11 @@
               "RelativeToolTip": "ECommerce.Web\\CommonHelper\\CommonProcess.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAkwAgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T16:28:48.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T16:28:48.644Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DalUser.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
@@ -135,18 +130,17 @@
               "RelativeToolTip": "ECommerce.Web\\DataAcessLayer\\Service\\DalUser.cs",
               "ViewState": "AgIAAHUAAAAAAAAAAAAowH0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T16:15:50.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T16:15:50.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "SellerInventoryController.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\SellerInventoryController.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Controllers\\SellerInventoryController.cs",
               "ToolTip": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\SellerInventoryController.cs",
               "RelativeToolTip": "ECommerce.Web\\Controllers\\SellerInventoryController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAADwv0YAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAowCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-11T15:46:38.747Z",
               "EditorCaption": ""
@@ -161,8 +155,7 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\ProductsController.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAwwD8AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T15:45:22.416Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T15:45:22.416Z"
             },
             {
               "$type": "Document",
@@ -174,12 +167,11 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\SubCetagoryController.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAkwD0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T14:39:05.196Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T14:39:05.196Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Helper.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\CommonHelper\\Helper.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\CommonHelper\\Helper.cs",
@@ -187,12 +179,11 @@
               "RelativeToolTip": "ECommerce.Web\\CommonHelper\\Helper.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAwwHgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T14:39:05.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T14:39:05.239Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CetagoryController.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\CetagoryController.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Controllers\\CetagoryController.cs",
@@ -205,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "UserController.cs",
               "DocumentMoniker": "D:\\Final Full Stack Project\\Backend\\ECommerceWebApi\\ECommerce.Web\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "ECommerce.Web\\Controllers\\UserController.cs",
@@ -213,8 +204,7 @@
               "RelativeToolTip": "ECommerce.Web\\Controllers\\UserController.cs",
               "ViewState": "AgIAADcAAAAAAAAAAADgvzsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T15:38:36.593Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-11T15:38:36.593Z"
             }
           ]
         }

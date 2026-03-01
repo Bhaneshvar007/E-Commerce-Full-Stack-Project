@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 const AddCetagory = () => {
   return (
     <div className="flex items-center justify-center px-4">
-      <div className="bg-white w-full max-w-[600px] rounded-xl shadow-md p-6  mt-5">
+      <div className="bg-white w-full max-w-150 rounded-xl shadow-md p-6  mt-5">
 
         <h2 className="text-2xl font-semibold text-gray-600 mb-6">
           Add Category
         </h2>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="CategoryName">
             Category Name
           </label>
           <input
             type="text"
-            placeholder="Enter category name"
+            placeholder="Enter category name" name="CategoryName" id="CategoryName"
             className="w-full px-4 py-2 pr-10
                                       border border-gray-300
                                       rounded-md
@@ -28,11 +28,11 @@ const AddCetagory = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="Description">
             Description
           </label>
           <textarea
-            rows="3"
+            rows="3" name="Description" id="Description"
             placeholder="Enter category description"
             className="w-full px-4 py-2 pr-10
                                       border border-gray-300
