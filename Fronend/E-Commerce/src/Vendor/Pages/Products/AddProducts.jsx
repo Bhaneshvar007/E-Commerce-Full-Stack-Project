@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const AddProducts = () => {
   return (
     <div className="flex items-center justify-center px-4">
-      <div className="bg-white w-full max-w-150 rounded-xl shadow-md p-6  mt-5">
+      <div className="bg-white w-full max-w-150 rounded-xl shadow-md py-4 px-6 ">
 
         <h2 className="text-2xl font-semibold text-gray-600 mb-6">
           Add Product

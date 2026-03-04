@@ -10,19 +10,31 @@ const Products = () => {
                     Products List
                 </h2>
 
-                <Link to="/AddProduct">
-                    <button
-                        className="px-4 py-2 bg-blue-600 text-white rounded-md font-medium
+                <div>
+                    <Link to="/AddProduct">
+                        <button
+                            className="px-4 py-2 bg-blue-600 text-white rounded-md font-medium
                         hover:bg-blue-700 transition-all
                         focus:outline-none focus:ring-2 focus:ring-indigo-400"
-                    >
-                        + Add
-                    </button>
-                </Link>
+                        >
+                            + Add
+                        </button>
+
+                    </Link>
+                    <Link to="" className="ml-2">
+                        <button
+                            className="px-4 py-2 bg-green-600 text-white rounded-md font-medium
+                                         hover:bg-green-700 transition-all
+                                         focus:outline-none focus:ring-2">
+                            Export
+                        </button>
+                    </Link>
+
+                </div>
             </div>
 
 
-            <div className="h-[615px] shadow-md overflow-y-auto rounded-lg overflow-hidden">
+            <div className="h-153.75 shadow-md overflow-y-auto rounded-lg overflow-hidden">
                 <table className="w-full border-collapse">
                     <thead className="sticky top-0 bg-blue-600 text-gray-50 text-sm z-10">
                         <tr>
